@@ -1,16 +1,19 @@
 package com.example
 
 import io.ktor.server.application.*
-import io.ktor.server.response.*
+import io.ktor.server.http.content.*
 import io.ktor.server.routing.*
+import java.io.*
 
 fun main(args: Array<String>): Unit =
     io.ktor.server.netty.EngineMain.main(args)
 
 fun Application.module() {
     routing {
-        get("/") {
-            call.respondText("Hello World!")
+        static("/") {
+            staticRootFolder = File("public")
+            files(".")
+            default("index.html")
         }
     }
 }
