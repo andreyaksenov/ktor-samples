@@ -19,10 +19,7 @@ data class Car(val type: String, val model: String, val color: String)
 
 fun Application.module() {
     install(ContentNegotiation) {
-        json(Json {
-            prettyPrint = true
-            isLenient = true
-        })
+        json()
     }
     install(PartialContent)
     routing {
