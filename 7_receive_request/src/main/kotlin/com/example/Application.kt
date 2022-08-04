@@ -32,8 +32,8 @@ fun Application.module() {
             call.respondText(text)
         }
         post("/json") {
-            val customer = call.receive<Car>()
-            call.respond(customer)
+            val car = call.receive<Car>()
+            call.respond(car)
         }
         post("/urlencoded") {
             val formParameters = call.receiveParameters()
