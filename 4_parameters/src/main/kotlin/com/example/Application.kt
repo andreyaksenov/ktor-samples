@@ -14,5 +14,10 @@ fun Application.module() {
                 call.respondText("You are logged in as Admin")
             }
         }
+        get("/products") {
+            if (call.request.queryParameters["price"] == "asc") {
+                call.respondText("Products from the lowest price to the highest")
+            }
+        }
     }
 }
