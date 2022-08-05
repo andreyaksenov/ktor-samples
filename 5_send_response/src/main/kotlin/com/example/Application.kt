@@ -4,11 +4,9 @@ import io.ktor.http.*
 import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.application.*
 import io.ktor.server.plugins.contentnegotiation.*
-import io.ktor.server.plugins.partialcontent.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import kotlinx.serialization.Serializable
-import kotlinx.serialization.json.*
 import java.io.*
 
 fun main(args: Array<String>): Unit =
@@ -21,7 +19,6 @@ fun Application.module() {
     install(ContentNegotiation) {
         json()
     }
-    install(PartialContent)
     routing {
         get("/json") {
             call.respond(Car("Fiat", "500", "white"))
