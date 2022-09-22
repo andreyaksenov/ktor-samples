@@ -12,6 +12,8 @@ fun Application.module() {
         get("/user/{login}") {
             if (call.parameters["login"] == "admin") {
                 call.respondText("You are logged in as Admin")
+            } else {
+                call.respondText("You are logged in as Guest")
             }
         }
         get("/products") {
